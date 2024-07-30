@@ -1,3 +1,62 @@
-This project provides all functionality to the user which is same as Linux File System. It provides necessary commands, system calls implementations of system through customized shell.
+# Customised Database Management System
 
-This project is derived from concept of Linux Operating System and based on how Files are managed in Operating System .A File is common storage unit in computer. File is an unformatted uniform stream of bytes. Bringing file to the RAM is done by operating system, this task is called as File Management. File Management is responsible for file handling system calls like create, open, close, read, write, lseek etc. In this project, I have implemented my own system calls for read, write, create etc. In this file System, no permanent file will be created on hard-disk; rather it will be created on RAM, and will be disappear as the program terminates. But we can read, write, seek file data from all the files using function I have implemented. This file system have all the section of hard-disk like super block, DILB and data block. Also it have UFDT Area, File table and IIT Table. There are 4 structure 1: ufdt 2: Filetable 3: inode  4: Superblock. I have created the structure of ufdt in which there is a pointer holding address of file table. I have made the array of this ufdt structure. pointer of filetable points to inode and inode is a Singly Linked List which has a member known as buffer in which our data is preserved. There are total 50 inode in this file system. All the information of files in computer is stored in inode. This inode is a self referential data-structure. There are total 50 inodes in this file system hence we can create total 50 files. Buffer is char array of size 1024 Bytes in which our data will be stored by dynamically allocation. We read, write data in Buffer and we can write total 1024bytes of data in one file. To read a file give file mode 1 and to write give mode 2. And if we want to both read and write file give mode 3(1+2).
+This project is a Customised Virtual File System (CVFS) implemented in C Programming. It provides a simplified and user-friendly interface for file operations, supporting various functionalities such as creating, reading, writing, listing, and deleting files.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Usage](#usage)
+- [Commands](#commands)
+- [Compilation and Execution](#compilation-and-execution)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+The Customised Database Management System simulates a virtual file system where users can create and manage files with different permissions. It maintains an in-memory representation of files and supports basic file operations.
+
+## Features
+
+- Create new regular files with specific permissions
+- Read from and write to files
+- List all files with their metadata
+- Display detailed information about files
+- Delete files
+- Change file offset for reading and writing
+- Close specific or all open files
+- Remove data from files
+
+## Usage
+
+To use the Customised VFS, follow these steps:
+
+1. Compile the code.
+2. Run the executable.
+3. Use the provided commands to interact with the file system.
+
+## Commands
+
+- `ls` : List all files
+- `create <FileName> <Permission>` : Create a new file with specified permission
+- `open <FileName> <Mode>` : Open an existing file
+- `read <FileDescriptor> <NoOfBytes>` : Read data from a file
+- `write <FileDescriptor> <Data>` : Write data to a file
+- `stat <FileName>` : Display information of a file using file name
+- `fstat <FileDescriptor>` : Display information of a file using file descriptor
+- `close <FileName>` : Close a specific file
+- `closeall` : Close all open files
+- `truncate <FileName>` : Remove data from a file
+- `rm <FileName>` : Delete a file
+- `lseek <FileDescriptor> <Size> <StartPoint>` : Change the offset of a file
+- `man <CommandName>` : Display user manual for a specific command
+- `clear` : Clear console
+- `exit` : Terminate the file system
+
+## Compilation and Execution
+
+To compile and run the project, use the following commands:
+
+```sh
+gcc Customised_Database_Management_System.c -o vfs
+./vfs
