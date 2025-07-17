@@ -1,60 +1,134 @@
-# Customised Database Management System
+# 🗃️ Customised Virtual File System (CVFS)
 
-This project is a Customised Virtual File System (CVFS) implemented in C Programming. It provides a simplified and user-friendly interface for file operations, supporting various functionalities such as creating, reading, writing, listing, and deleting files.
+A simulated Virtual File System (VFS) implemented in C/C++ that replicates basic functionalities of Unix-like file systems. This project demonstrates core OS concepts like inode structure, file permissions, command parsing, and memory management, all from scratch — without relying on the actual OS file APIs.
 
-## Table of Contents
+---
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Usage](#usage)
-- [Commands](#commands)
-- [Compilation and Execution](#compilation-and-execution)
+## 🚀 Features
 
-## Introduction
+- 📄 Create, open, read, write, and delete regular files.
+- 🔐 Permission management (Read / Write / Read+Write).
+- 📊 File metadata viewing (`stat` and `fstat`).
+- 📂 List files (`ls`) with inode details.
+- 🧹 Truncate file contents (`turncate`).
+- 🎯 File pointer manipulation (`lseek`).
+- 👨‍💻 Interactive shell interface for command input.
 
-The Customised Database Management System simulates a virtual file system where users can create and manage files with different permissions. It maintains an in-memory representation of files and supports basic file operations.
+---
 
-## Features
+## 🧠 Core Concepts Implemented
 
-- Create new regular files with specific permissions
-- Read from and write to files
-- List all files with their metadata
-- Display detailed information about files
-- Delete files
-- Change file offset for reading and writing
-- Close specific or all open files
-- Remove data from files
+- **Inode Table (DILB)** for file metadata.
+- **User File Descriptor Table (UFDT)** simulating file descriptors.
+- **Superblock** to track total/free inodes.
+- **FileTable** to manage opened file sessions.
+- **Manual Command Parser** using `sscanf()`.
 
-## Usage
+---
 
-To use the Customised VFS, follow these steps:
+## 🛠️ Installation & Usage
 
-1. Compile the code.
-2. Run the executable.
-3. Use the provided commands to interact with the file system.
+### 🧾 Compile the Program
 
-## Commands
+```bash
+g++ VFS.cpp -o vfs
+```
 
-- `ls` : List all files
-- `create <FileName> <Permission>` : Create a new file with specified permission
-- `open <FileName> <Mode>` : Open an existing file
-- `read <FileDescriptor> <NoOfBytes>` : Read data from a file
-- `write <FileDescriptor> <Data>` : Write data to a file
-- `stat <FileName>` : Display information of a file using file name
-- `fstat <FileDescriptor>` : Display information of a file using file descriptor
-- `close <FileName>` : Close a specific file
-- `closeall` : Close all open files
-- `truncate <FileName>` : Remove data from a file
-- `rm <FileName>` : Delete a file
-- `lseek <FileDescriptor> <Size> <StartPoint>` : Change the offset of a file
-- `man <CommandName>` : Display user manual for a specific command
-- `clear` : Clear console
-- `exit` : Terminate the file system
+### ▶️ Run the Virtual File System
 
-## Compilation and Execution
+```bash
+./vfs
+```
 
-To compile and run the project, use the following commands:
+> You'll enter an interactive CLI environment resembling a Unix shell.
 
-```sh
-gcc Customised_Database_Management_System.c -o myexe
-./myexe
+---
+
+## 💡 Available Commands
+
+| Command | Usage | Description |
+|--------|--------|-------------|
+| `create` | `create <filename> <permission>` | Create a new file with read/write permissions |
+| `open` | `open <filename> <mode>` | Open an existing file |
+| `read` | `read <filename> <size>` | Read bytes from a file |
+| `write` | `write <filename>` | Write data to a file (prompts for input) |
+| `ls` | - | List all files |
+| `stat` | `stat <filename>` | Display metadata of a file |
+| `fstat` | `fstat <fd>` | Display metadata using file descriptor |
+| `lseek` | `lseek <filename> <offset> <start/cur/end>` | Move file pointer |
+| `close` | `close <filename>` | Close a specific file |
+| `closeall` | - | Close all open files |
+| `rm` | `rm <filename>` | Delete a file |
+| `turncate` | `turncate <filename>` | Erase file contents |
+| `help` | - | List all available commands |
+| `man` | `man <command>` | View manual for specific command |
+| `clear` | - | Clear screen (may not work on all terminals) |
+| `exit` | - | Terminate the VFS shell |
+
+---
+
+## 🔐 Permissions Guide
+
+| Value | Permission |
+|-------|------------|
+| `1` | Read Only |
+| `2` | Write Only |
+| `3` | Read and Write |
+
+---
+
+## 📦 File System Limits
+
+- Max files (inodes): **50**
+- Max file size: **2048 bytes**
+- File name limit: **50 characters**
+- Max open files: **50**
+
+---
+
+## 📸 Sample Session
+
+```
+Marvellous VFS : > create demo.txt 3
+File successfully created with file descriptor: 0
+
+Marvellous VFS : > write demo.txt
+Enter the data:
+This is a test string.
+
+Marvellous VFS : > read demo.txt 100
+This is a test string.
+
+Marvellous VFS : > ls
+File Name    Inode No    File Size    Link Count
+demo.txt     1           22           1
+
+Marvellous VFS : > stat demo.txt
+File name : demo.txt
+Inode No  : 1
+File Size : 2048
+Actual Size : 22
+Permission : Read & Write
+```
+
+---
+
+## 📚 Project Purpose
+
+This VFS is an academic/systems programming project aimed to:
+
+- Understand low-level file system internals.
+- Simulate a CLI-based VFS environment.
+- Practice memory, pointer, and buffer management in C.
+- Gain OS-level insight into inode tables, file descriptors, and permissions.
+
+---
+
+## 👨‍💻 Author
+
+**Mahesh Pawar**  
+📫 Email: [quality@jyotiht.com](mailto:mahesh.dinkar.pawar.02@gmail.com)  
+📞 Phone: +91 9322150275  
+🏢 Chikhali, Pune, Maharastra - 411062
+
+---
