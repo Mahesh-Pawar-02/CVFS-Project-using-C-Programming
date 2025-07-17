@@ -89,21 +89,21 @@ g++ VFS.cpp -o vfs
 ## 📸 Sample Session
 
 ```
-Marvellous VFS : > create demo.txt 3
+Customised VFS : > create demo.txt 3
 File successfully created with file descriptor: 0
 
-Marvellous VFS : > write demo.txt
+Customised VFS : > write demo.txt
 Enter the data:
 This is a test string.
 
-Marvellous VFS : > read demo.txt 100
+Customised VFS : > read demo.txt 100
 This is a test string.
 
-Marvellous VFS : > ls
+Customised VFS : > ls
 File Name    Inode No    File Size    Link Count
 demo.txt     1           22           1
 
-Marvellous VFS : > stat demo.txt
+Customised VFS : > stat demo.txt
 File name : demo.txt
 Inode No  : 1
 File Size : 2048
