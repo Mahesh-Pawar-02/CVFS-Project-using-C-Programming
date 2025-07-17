@@ -127,7 +127,7 @@ This VFS is an academic/systems programming project aimed to:
 ## 👨‍💻 Author
 
 **Mahesh Pawar**  
-📫 Email: [quality@jyotiht.com](mailto:mahesh.dinkar.pawar.02@gmail.com)  
+📫 Email: [mahesh.dinkar.pawar.02@gmail.com](mailto:mahesh.dinkar.pawar.02@gmail.com)  
 📞 Phone: +91 9322150275  
 🏢 Chikhali, Pune, Maharastra - 411062
 
