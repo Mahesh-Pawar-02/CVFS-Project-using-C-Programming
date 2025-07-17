@@ -9,8 +9,6 @@ This project is a Customised Virtual File System (CVFS) implemented in C Program
 - [Usage](#usage)
 - [Commands](#commands)
 - [Compilation and Execution](#compilation-and-execution)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -58,5 +56,5 @@ To use the Customised VFS, follow these steps:
 To compile and run the project, use the following commands:
 
 ```sh
-gcc Customised_Database_Management_System.c -o vfs
-./vfs
+gcc Customised_Database_Management_System.c -o myexe
+./myexe
